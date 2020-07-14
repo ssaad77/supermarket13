@@ -1,0 +1,33 @@
+<h2>Hi Admin  <%= user.name %></h2>
+
+<%- include('_layouts/header') -%>
+<main>
+    <section>
+        <h1>List of Messages: </h1>
+        <table class="contact-list">
+            <thead>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>email</th>
+                <th>Messages</th>
+
+                <th colspan="2">Manage</th>
+            </thead>
+            <tbody>
+                <% contacts.forEach( function(contact) { %>
+                <tr>
+                    <td><%= contact.name %></td>
+                    <td><%= contact.phone %></td>
+                    <td><%= contact.email %></td>
+                    <td><%= contact.message %></td>
+
+                    <td><a href="/allmessages/edit/<%= contact._id %>">Edit</a></td>
+                    <td><a href="/allmessages/delete/<%= contact._id %>">Delete</a></td>
+                    
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </section>
+</main>
+<%- include('_layouts/footer') -%>

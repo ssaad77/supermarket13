@@ -1,0 +1,39 @@
+<h2>Hi Admin <%= user.name %></h2>
+
+<%- include('_layouts/header') -%>
+<main>
+    <h1>List of Order: </h1>
+    <table class="contact-list">
+        <thead>
+
+            <th>product1</th>
+            <th>product2</th>
+            <th>product3</th>
+            <th>delivery</th>
+            <th>subtotal</th>
+            <th>tax</th>
+            <th>total</th>
+            <th colspan="2">Manage</th>
+        </thead>
+        <tbody>
+            <% contacts.forEach(function(contact){
+                %>
+            <tr>
+                <td><%= contact.product1 %></td>
+                <td><%= contact.product2 %></td>
+                <td><%= contact.product3 %></td>
+                <td><%= contact.delivery %></td>
+                <td><%= contact.subtotal %></td>
+                <td><%= contact.tax %></td>
+                <td><%= contact.total %></td>
+
+                <td><a href="/allorders/edit/<%= contact._id %>">Edit</a></td>
+                <td><a href="/allorders/delete/<%= contact._id %>">Delete</a></td>
+             
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</section>
+</main>
+<%- include('_layouts/footer') -%>

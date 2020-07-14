@@ -1,0 +1,20 @@
+<%- include('_layouts/header') -%>
+<main>
+    <section>
+        <p></p>
+        <h1> <p>Here is Your Invoice  <%= name %> ... </h1>
+        <br></br>      
+        <p>Product 1 @ $ .55 per piece : $ <%= product1 %></p>
+        <p>Product 2 @ $ .70 per piece : $ <%= product2 %></p>
+        <p>Product 3 @ $ .80 per piece : $ <%= product3 %></p>
+        <p>Shipping Charges : $ <%= delivery %></p>
+        <p>Sub Total : $ <%= subtotal %></p>
+        <p>Taxes @ 13% : $ <%= tax %></p>
+       <h1><p>Total : $ <%= total %></p></h1>
+       <br/><br/>
+       <h2> <p>We have send You an email with bill details  <%= name %> </h2>
+        <br/><br/>
+
+    </section>
+</main>
+<%- include('_layouts/footer') -%>

@@ -1,0 +1,81 @@
+<%- include('_layouts/header') -%>
+<main>
+    <section>
+        <p></p>
+        <h1>Register </h1>
+        <p></p>
+        <form method="post" action="/register">
+            <p>
+            <div class="form-field">
+                <label for="name">Name:</label>
+                <input placeholder="First Last" type="text" class="form-input" name="name">
+                </p>
+            </div>
+            <p>
+            <div class="form-field">
+                <label for="email">Email:</label>
+                <input placeholder="email@domain.com" type="text" class="form-input" name="email">
+                </p>
+            </div>
+            </div>
+            <p>
+            <div class="form-field">
+                <label for="password">password:</label>
+                <input type="text" class="form-input" name="password">
+                </p>
+            </div>
+            <p>
+            <div class="form-field">
+                <label for="phone">phone:</label>
+                <input placeholder="123-123-1234" type="text" class="form-input" name="phone">
+                </p>
+            </div>
+            <p>
+            <div class="form-field">
+                <label for="address">Address:</label>
+                <input type="text" class="form-input" name="address">
+                </p>
+            </div>
+            <p>
+            <div class="form-field">
+                <label for="city">City:</label>
+                <input type="text" class="form-input" name="city">
+                </p>
+            </div>
+            <p>
+            <div class="form-field">
+                <label for="postCode">Post Code:</label>
+                <input placeholder="X9X 9X9" type="text" class="form-input" name="postCode" id='postCode'>
+                </p>
+            </div>
+            <p>
+            <div class="form-field">
+                <label for="province">province:</label>
+                <select name="province" id="province">
+                    <option value="ONTARIO">ONTARIO</option>
+                    <option value="BRITISH COLUMBIA">BRITISH COLUMBIA</option>
+                    <option value="ALBERTA">ALBERTA</option>
+                    <option value="QUEBEC">QUEBEC</option>
+                    <option value="MANITOBA">MANITOBA</option>
+                </select><br />
+                <!--  <class name="province" id="province">-->
+                </p>
+
+            </div>
+            <p>
+            <div class="form-field">
+                <input type="submit" class="form-submit" value="submit">
+                </p>
+            </div>
+        </form>
+    </section>
+</main>
+<% if(typeof errors !== 'undefined'){
+    for(var error of errors){
+        %>
+<h3><%= error.msg %></h3>
+<%
+    }
+}
+%>
+<%- include('_layouts/footer') -%>

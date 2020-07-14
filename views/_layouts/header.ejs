@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html style="background-image: url('/images/black-linen.png');">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>supermarket ewb site</title>
+	<link rel="icon" type="/image/ico" href="">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+	<header>
+		<br>
+		<br>
+		<div class="aside">
+			<img class="logo" src="/images/home.jpg">
+		</div>
+		<div class="menu">
+
+			<span><a href="/">Home</a></span>
+			<% if(typeof user === 'undefined') { %>
+				<span><a href="/register">Registration</a></span>
+				<span><a href="/store">Store</a></span>
+				<span><a href="/login">Sign in</a></span>
+				<span> <a href="/contactUs">Contact Us</a></span>
+
+			<% } else {
+				if (user.admin) { %>
+					<span><a href="/allorders">All Orders</a></span>
+					<span><a href="/allcontacts">All Contacts</a></span>
+					<span><a href="/allmessages">Messages</a></span>
+				<% } else { %>
+					<span><a href="/store">Store</a></span>
+					<span><a href="/order">Place Order</a></span>
+				<% } %>
+				<span><a href="/logout">Sign Out</a></span>
+			<% } %>
+		</div>
+	</header>
+</body>
+
+</html>

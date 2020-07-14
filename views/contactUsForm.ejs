@@ -1,0 +1,41 @@
+<%- include('_layouts/header') -%>
+<main>
+    <section>    
+        <p></p>     
+        <h1>Contact Us</h1>
+        <p></p>
+        <form method = "post" action="/contactUs">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input  placeholder="First Last" type="text" class="form-control" name="name"
+                    value="<%= user && user.name ? user.name : '' %>">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input placeholder="email@domain.com" type="text" class="form-control" name="email"
+                    value="<%= user && user.email ? user.email : '' %>">
+            </div>
+            <div class="form-group">
+                <label for="phone">phone:</label>
+                <input placeholder="123-123-1234" type="text" class="form-control" name="phone"
+                    value="<%= user && user.phone ? user.phone : '' %>">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" class="form-control" rows="8"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="form-submit" value="submit">
+            </div>
+        </form>
+    </section>
+</main>
+<% if(typeof errors !== 'undefined'){
+    for(var error of errors){
+        %>
+        <h3><%= error.msg %></h3>
+        <%
+    }
+}
+%>
+<%- include('_layouts/footer') -%>

@@ -1,0 +1,70 @@
+
+<%- include('_layouts/header')  -%>
+
+<main>
+
+    <section>
+        <p></p>
+        <h1>Edit Order</h1>
+        <p></p>
+
+        <form method="post"action="/allorders/edit/<%= order._id %>">
+            <p>
+            <div class="form-field">
+                <label for="product1">Product 1:</label>
+                <input type="text" class="form-input" name="product1" value="<%= order.product1 %>"></p>
+            </div>
+            <p>
+            <div class="form-field">
+                <label for="product2">Product 2:</label>
+                <input type="text" class="form-input" name="product2" value="<%= order.product2 %>">></p>
+            </div>
+            <p>
+            <div class="form-field">
+                <label for="product3">Product 3:</label>
+                <input type="text" class="form-input" name="product3" value="<%= order.product3 %>">>
+                </p>
+            </div>
+            <div class="form-field">
+                <label for="delivery">Delivery Time:</label>
+                <select name="delivery" id="delivery" value="<%= order.delivery %>">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select><br />
+                </p>
+            </div>
+            <p>
+                <div class="form-field">
+                    <label for="subtotal">subtotal:</label>
+                    <input type="text" class="form-input" name="subtotal" value="<%= order.subtotal %>">>
+                    </p>
+                </div>
+                <div class="form-field">
+                    <label for="tax">tax:</label>
+                    <input type="text" class="form-input" name="tax" value="<%= order.tax %>">>
+                    </p>
+                </div>
+                <div class="form-field">
+                    <label for="total">total:</label>
+                    <input type="text" class="form-input" name="total" value="<%= order.total %>">>
+                    </p>
+                </div>
+            <div class="form-field">
+                <input type="submit" class="form-submit" value="submit">
+                </p>
+            </div>
+        </form>
+    </section>
+</main>
+<% if(typeof errors !== 'undefined'){
+    for(var error of errors){
+        %>
+<h3><%= error.msg %></h3>
+<%
+    }
+}
+%>
+
+<%- include('_layouts/footer') -%>
