@@ -75,7 +75,7 @@ myApp.get('/store', function (req, res) {
     if (req.session.userLoggedIn) {
         res.render('store', { user: req.session.loggedInUser });
     } else {
-        res.redirect('/login');
+        res.render('store', { user: '' });
     }
 });
 
@@ -408,15 +408,37 @@ myApp.post('/register', [
         }
         return true;
     }),
-    check('address', 'Enter your Address').not().isEmpty(),
-    check('city', 'Enter a City').not().isEmpty(),
-    check('postCode').custom(value => {
-        const reg = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/
-        if (!reg.test(value)) {
-            throw new Error('Enter a correct postal code like X0X 0X0');
-        }
-        return true;
-    })
+
+    ///////
+    check('email').custom(value => {
+        temp_contact = ''
+        Contact.findOne({ email: value }).exec(function (err, e_contact) {
+            //if (err) return handleError(err);
+            //console.log(value)
+            if(e_contact){
+                temp_contact = e_contact
+            }
+
+        });
+        
+        if (temp_contact !='') {
+            console.log("found iiiittttttt")
+                throw new Error('your email already exist');
+            }
+            return true;
+    }),
+
+        ///////
+
+        check('address', 'Enter your Address').not().isEmpty(),
+            check('city', 'Enter a City').not().isEmpty(),
+            check('postCode').custom(value => {
+                const reg = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/
+                if (!reg.test(value)) {
+                    throw new Error('Enter a correct postal code like X0X 0X0');
+                }
+                return true;
+            })
 ],
     function (req, res) {
         const errors = validationResult(req);
@@ -448,9 +470,12 @@ myApp.post('/register', [
                 postCode: postCode,
                 province: province
             });
+
+
             myContact.save().then(() => {
                 console.log('New contact created: ' + name);
             });
+
             res.render('registerationThank', myContact);
         }
     });
