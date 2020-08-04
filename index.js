@@ -9,6 +9,7 @@ mongoose.connect('mongodb://localhost:27017/project', {
 })
 
 const session = require('express-session');
+const { Template } = require('ejs');
 
 const ContactUs = mongoose.model('ContactUs', {
     name: String,
@@ -28,9 +29,21 @@ const Contact = mongoose.model('Contact', {
     province: String
 });
 const Order = mongoose.model('Order', {
-    product1: Number,
-    product2: Number,
-    product3: Number,
+    carrots: Number,
+    lemon: Number,
+    onion: Number,
+    whitePotato: Number,
+    redPotato: Number,
+    redPepper: Number,
+    yellowPepper: Number,
+    radish: Number,
+    flatCabbage: Number,
+    redCabbage: Number,
+    zucchini: Number,
+    eggPlant: Number,
+    greenBeans: Number,
+    whiteCarrot: Number,
+    mint: Number,
     delivery: Number,
     subtotal: Number,
     tax: Number,
@@ -43,6 +56,8 @@ const Admin = mongoose.model('Admin', {
 });
 
 var myApp = express();
+//var temp_contact = [1];
+//temp_val = "hi";
 myApp.use(session({
     secret: 'sam',
     resave: false,
@@ -174,9 +189,21 @@ myApp.get('/allorders/edit/:id', function (req, res) {
 myApp.post('/allorders/edit/:id', function (req, res) {
     var id = req.params.id;
     var updateOrderData = {
-        product1: req.body.product1,
-        product2: req.body.product2,
-        product3: req.body.product3,
+        carrots: req.body.carrots,
+        lemon: req.body.lemon,
+        onion: req.body.onion,
+        whitePotato: req.body.whitePotato,
+        redPotato: req.body.redPotato,
+        redPepper: req.body.redPepper,
+        yellowPepper: req.body.yellowPepper,
+        radish: req.body.radish,
+        flatCabbage: req.body.flatCabbage,
+        redCabbage: req.body.redCabbage,
+        zucchini: req.body.zucchini,
+        eggPlant: req.body.eggPlant,
+        greenBeans: req.body.greenBeans,
+        whiteCarrot: req.body.whiteCarrot,
+        mint: req.body.mint,
         delivery: req.body.delivery,
         subtotal: req.body.subtotal,
         tax: req.body.tax,
@@ -198,7 +225,6 @@ myApp.get('/allorders/delete/:id', function (req, res) {
 myApp.get('/allmessages/edit/:id', function (req, res) {
     var id = req.params.id;
     ContactUs.findOne({ _id: id }).exec(function (err, s_contacts) {
-        console.log(s_contacts);
         res.render('editMessages', { user: req.session.loggedInUser, contacts: s_contacts })
     });
 });
@@ -271,41 +297,9 @@ myApp.post('/contactUs', [
             res.render('contactUsThank', pageData);
         }
     });
-myApp.post('/order', [
-    check('product1', 'Enter a Number for Product1').isNumeric(),
-    check('product2', 'Enter a Number for Product2').isNumeric(),
-    check('product3', 'Enter a Number for Product 3').isNumeric(),
-    check('product1').custom(value => {
-        value = parseInt(value)
-        if (value < 0) {
-            throw new Error('Negative value found for Product 1');
-        }
-        return true;
-    }),
-    check('product1').custom((value, { req }) => {
-        value = parseInt(value)
-        if ((value + parseInt(req.body.product2) + parseInt(req.body.product3)) == 0) {
-            throw new Error('you have to buy one product at least');
-        }
-        return true;
-    }),
-
-    check('product2').custom(value => {
-        value = parseInt(value)
-        if (value < 0) {
-            throw new Error('Negative value found for Product 2');
-        }
-        return true;
-    }),
-    check('product3').custom(value => {
-        value = parseInt(value)
-        if (value < 0) {
-            throw new Error('Negative value found for Product 3');
-        }
-        return true;
-    }),
-],
+myApp.post('/order',
     function (req, res) {
+       
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             var data = {
@@ -315,18 +309,51 @@ myApp.post('/order', [
             res.render('orderForm', data);
         }
         else {
-            var product1 = req.body.product1;
-
-            var product2 = req.body.product2;
-
-            var product3 = req.body.product3;
-
-            var product1T = parseInt(product1) * .55;
-            product1T = product1T.toFixed(2);
-            var product2T = parseInt(product2) * .70;
-            product2T = product2T.toFixed(2);
-            var product3T = parseInt(product3) * .80;
-            product3T = product3T.toFixed(2);
+            var carrots = req.body.carrots;
+            var lemon = req.body.lemon;
+            var onion = req.body.onion;
+            var whitePotato = req.body.whitePotato;
+            var redPotato = req.body.redPotato;
+            var redPepper = req.body.redPepper;
+            var yellowPepper = req.body.yellowPepper;
+            var radish = req.body.radish;
+            var flatCabbage = req.body.flatCabbage;
+            var redCabbage = req.body.redCabbage;
+            var zucchini = req.body.zucchini;
+            var eggPlant = req.body.eggPlant;
+            var greenBeans = req.body.greenBeans;
+            var whiteCarrot = req.body.whiteCarrot;
+            var mint = req.body.mint;
+            var carrotsT = parseInt(carrots) * .40;
+            carrotsT = carrotsT.toFixed(2);
+            var lemonT = parseInt(lemon) * .50;
+            lemonT = lemonT.toFixed(2);
+            var onionT = parseInt(onion) * .60;
+            onionT = onionT.toFixed(2);
+            var whitePotatoT = parseInt(whitePotato) * .70;
+            whitePotatoT = whitePotatoT.toFixed(2);
+            var redPotatoT = parseInt(redPotato) * .80;
+            redPotatoT = redPotatoT.toFixed(2);
+            var redPepperT = parseInt(redPepper) * .60;
+            redPepperT = redPepperT.toFixed(2);
+            var yellowPepperT = parseInt(yellowPepper) * .70;
+            yellowPepperT = yellowPepperT.toFixed(2);
+            var radishT = parseInt(radish) * .50;
+            radishT = radishT.toFixed(2);
+            var flatCabbageT = parseInt(flatCabbage) * .50;
+            flatCabbageT = flatCabbageT.toFixed(2);
+            var redCabbageT = parseInt(redCabbage) * .60;
+            redCabbageT = redCabbageT.toFixed(2);
+            var zucchiniT = parseInt(zucchini) * .70;
+            zucchiniT = zucchiniT.toFixed(2);
+            var eggPlantT = parseInt(eggPlant) * .90;
+            eggPlantT = eggPlantT.toFixed(2);
+            var greenBeansT = parseInt(greenBeans) * .40;
+            greenBeansT = greenBeansT.toFixed(2);
+            var whiteCarrotT = parseInt(whiteCarrot) * .50;
+            whiteCarrotT = whiteCarrotT.toFixed(2);
+            var mintT = parseInt(mint) * .99;
+            mintT = mintT.toFixed(2);
             var myUsername = req.session.loggedInUser.name;
             var delivery = parseInt(req.body.delivery[1]);
             var shippingExpenses = 0;
@@ -344,16 +371,30 @@ myApp.post('/order', [
                     shippingExpenses = 3;
                 }
             }
-            var subtotal = parseFloat(product1T) + parseFloat(product2T) + parseFloat(product3T) + parseFloat(shippingExpenses);
+
+            var subtotal = parseFloat(carrotsT) + parseFloat(lemonT) + parseFloat(onionT) +  parseFloat(whitePotatoT) +  parseFloat(redPotatoT) + +  parseFloat(redPepperT) +  parseFloat(yellowPepperT) +  parseFloat(radishT) + parseFloat(flatCabbageT) + parseFloat(redCabbageT) + parseFloat(zucchiniT) +parseFloat(eggPlantT) +parseFloat(greenBeansT) +parseFloat(whiteCarrotT) +parseFloat(mintT) +
+            parseFloat(shippingExpenses);
             var tax = subtotal * .13;
             tax = parseFloat(tax.toFixed(2));
             var total = subtotal + tax;
             total = total.toFixed(2);
             var pageData = {
                 name: myUsername,
-                product1: product1T,
-                product2: product2T,
-                product3: product3T,
+                carrots: carrotsT,
+                lemon: lemonT,
+                onion: onionT,
+                whitePotato: whitePotatoT,
+                redPotato: redPotatoT,
+                redPepper: redPepperT,
+                yellowPepper: yellowPepperT,
+                radish: radishT,
+                flatCabbage: flatCabbageT,
+                redCabbage: redCabbageT,
+                zucchini: zucchiniT,
+                eggPlant: eggPlantT,
+                greenBeans: greenBeansT,
+                whiteCarrot: whiteCarrotT,
+                mint: mintT,
                 delivery: shippingExpenses,
                 subtotal: subtotal,
                 tax: tax,
@@ -373,7 +414,10 @@ myApp.post('/order', [
                 from: 'supermarketgroup13@yahoo.com',
                 to: req.session.loggedInUser.email,
                 subject: 'Your invoice',
-                text: 'Hi ' + req.session.loggedInUser.name + '\n' + 'your invoice \n' + 'product1 :' + '' + product1T.toString() + '\n' + 'product2 :' + '' + product2T.toString() + '\n' + 'product3 :' + '' + product3T.toString() + '\n' + 'Shipping Charge :' + '' + shippingExpenses.toString() + '\n' + 'Sub Total Charge :' + '' + subtotal.toString() + '\n' + ' Tax :' + '' + tax.toString() + '\n' + 'Total :' + '' + total.toString()
+                text: 'Hi ' + req.session.loggedInUser.name + '\n' + 'your invoice \n' + 'carrots :' + '' + carrotsT + '\n' + 'lemon :' + '' + lemonT + '\n' + 'onion :' + '' + onionT +'\n' + 'whitePotato :' + '' + whitePotatoT + '\n' + 'redPotato :' + '' + redPotatoT + '\n'  + 'redPepper :' + '' + redPepperT +'\n' + 'yellowPepper :' + '' + yellowPepperT +'\n'+ 'radish :' + '' + radishT +'\n' +'flatCabbage :' + '' + flatCabbageT +'\n' +'redCabbage :' + '' + redCabbageT +'\n'+'zucchini :' + '' + zucchiniT +'\n' +
+                'eggPlant :' + '' + eggPlantT +'\n' +'greenBeans :' + '' + greenBeansT +'\n' +'whiteCarrot :' + '' + whiteCarrotT +'\n' +'mint :' + '' + mintT +'\n' +
+
+                'Shipping Charge :' + '' + shippingExpenses.toString() + '\n' + 'Sub Total Charge :' + '' + subtotal.toString() + '\n' + ' Tax :' + '' + tax.toString() + '\n' + 'Total :' + '' + total.toString()
             };
 
             transporter.sendMail(mailOptions, function (error, info) {
@@ -384,6 +428,8 @@ myApp.post('/order', [
                 }
             });
             var myOrder = new Order(pageData);
+            console.log('email');
+            console.log(req.session.loggedInUser.email);
             myOrder.save().then(function () {
                 console.log('New order created');
             });
@@ -410,74 +456,74 @@ myApp.post('/register', [
     }),
 
     ///////
-    check('email').custom(value => {
-        temp_contact = ''
-        Contact.findOne({ email: value }).exec(function (err, e_contact) {
-            //if (err) return handleError(err);
-            //console.log(value)
-            if(e_contact){
-                temp_contact = e_contact
-            }
 
-        });
-        
-        if (temp_contact !='') {
-            console.log("found iiiittttttt")
-                throw new Error('your email already exist');
-            }
-            return true;
-    }),
-
-        ///////
-
-        check('address', 'Enter your Address').not().isEmpty(),
-            check('city', 'Enter a City').not().isEmpty(),
-            check('postCode').custom(value => {
-                const reg = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/
-                if (!reg.test(value)) {
-                    throw new Error('Enter a correct postal code like X0X 0X0');
-                }
-                return true;
-            })
+    check('address', 'Enter your Address').not().isEmpty(),
+    check('city', 'Enter a City').not().isEmpty(),
+    check('postCode').custom(value => {
+        const reg = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/
+        if (!reg.test(value)) {
+            throw new Error('Enter a correct postal code like X0X 0X0');
+        }
+        return true;
+    })
 ],
     function (req, res) {
         const errors = validationResult(req);
 
-        if (errors.isEmpty()) {
-        }
-        if (!errors.isEmpty()) {
-            var errorsData = {
-                errors: errors.array(),
-                user: req.session.loggedInUser
+        console.log('errors before db call: ', errors);
+
+        // check unique email
+        Contact.findOne({ email: req.body.email }).exec((err, e_contact) => {
+            if (err) return handleError(err);
+
+            console.log('errors after db call: ', errors);
+
+            if (e_contact != null) {
+                console.log("email already exists");
+
+                // if email exists
+                errors.errors.push({
+                    value: 'the email',
+                    msg: 'this email already exists, please choose another email',
+                    param: 'email',
+                    location: 'body'
+                });
             }
-            res.render('registerForm', errorsData);
-        } else {
-            var name = req.body.name;
-            var email = req.body.email;
-            var password = req.body.password;
-            var phone = req.body.phone;
-            var address = req.body.address;
-            var city = req.body.city;
-            var postCode = req.body.postCode;
-            var province = req.body.province;
-            var myContact = new Contact({
-                name: name,
-                email: email,
-                password: password,
-                phone: phone,
-                address: address,
-                city: city,
-                postCode: postCode,
-                province: province
-            });
+
+            if (!errors.isEmpty()) {
+                var errorsData = {
+                    errors: errors.array(),
+                    user: req.session.loggedInUser
+                }
+                res.render('registerForm', errorsData);
+            } else {
+                var name = req.body.name;
+                var email = req.body.email;
+                var password = req.body.password;
+                var phone = req.body.phone;
+                var address = req.body.address;
+                var city = req.body.city;
+                var postCode = req.body.postCode;
+                var province = req.body.province;
+                var myContact = new Contact({
+                    name: name,
+                    email: email,
+                    password: password,
+                    phone: phone,
+                    address: address,
+                    city: city,
+                    postCode: postCode,
+                    province: province
+                });
 
 
-            myContact.save().then(() => {
-                console.log('New contact created: ' + name);
-            });
+                myContact.save().then(() => {
+                    console.log('New contact created: ' + name);
+                });
 
-            res.render('registerationThank', myContact);
-        }
+                res.render('registerationThank', myContact);
+            }
+        });
     });
 
 myApp.post('/login', function (req, res) {

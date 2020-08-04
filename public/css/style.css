@@ -150,8 +150,9 @@ header .pictitle{
 	
 }
 section{
-	width:400px;
+	width: 8px;
 	float:right;
+	margin-left: 100px;
 }
 .re{
 	float:right;
@@ -215,6 +216,7 @@ section{
 	float:left;
 	margin-top:50px;
 	margin-left:20px;
+	margin-right: 100px;
 	
 }
 .aside2{
@@ -233,10 +235,10 @@ section{
 }
 .aside4{
 	width:10px;
-	float:right;
+	float:left;
 	margin-top:50px;
-	margin-left:10px;
-	margin-right:250px;
+	margin-left:100px;
+	margin-right:100px;
 	
 }
 .aside5{
@@ -531,13 +533,12 @@ select{
 }
 form, .formData{
 	width: 400px;
-    border: 3px solid white;
+   
     padding: 30px;
     margin: 35px auto;
     color: white;
-    background-color: #064964;
-	border-radius: 0px 96px 0px 96px;
-	box-shadow: 0px 0px 3px 3px;
+    
+	
 }
 
 .clear{
