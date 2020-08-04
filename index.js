@@ -31,19 +31,19 @@ const Contact = mongoose.model('Contact', {
 const Order = mongoose.model('Order', {
     carrots: Number,
     lemon: Number,
-    onion: Number,
+    apple: Number,
     whitePotato: Number,
-    redPotato: Number,
+    melon: Number,
     redPepper: Number,
     yellowPepper: Number,
-    radish: Number,
+    kiwi: Number,
     flatCabbage: Number,
-    redCabbage: Number,
-    zucchini: Number,
+    orange: Number,
+    banana: Number,
     eggPlant: Number,
-    greenBeans: Number,
+    mango: Number,
     whiteCarrot: Number,
-    mint: Number,
+    pomegranate: Number,
     delivery: Number,
     subtotal: Number,
     tax: Number,
@@ -191,19 +191,19 @@ myApp.post('/allorders/edit/:id', function (req, res) {
     var updateOrderData = {
         carrots: req.body.carrots,
         lemon: req.body.lemon,
-        onion: req.body.onion,
+        apple: req.body.apple,
         whitePotato: req.body.whitePotato,
-        redPotato: req.body.redPotato,
+        melon: req.body.melon,
         redPepper: req.body.redPepper,
         yellowPepper: req.body.yellowPepper,
-        radish: req.body.radish,
+        kiwi: req.body.kiwi,
         flatCabbage: req.body.flatCabbage,
-        redCabbage: req.body.redCabbage,
-        zucchini: req.body.zucchini,
+        orange: req.body.orange,
+        banana: req.body.banana,
         eggPlant: req.body.eggPlant,
-        greenBeans: req.body.greenBeans,
+        mango: req.body.mango,
         whiteCarrot: req.body.whiteCarrot,
-        mint: req.body.mint,
+        pomegranate: req.body.pomegranate,
         delivery: req.body.delivery,
         subtotal: req.body.subtotal,
         tax: req.body.tax,
@@ -311,49 +311,49 @@ myApp.post('/order',
         else {
             var carrots = req.body.carrots;
             var lemon = req.body.lemon;
-            var onion = req.body.onion;
+            var apple = req.body.apple;
             var whitePotato = req.body.whitePotato;
-            var redPotato = req.body.redPotato;
+            var melon = req.body.melon;
             var redPepper = req.body.redPepper;
             var yellowPepper = req.body.yellowPepper;
-            var radish = req.body.radish;
+            var kiwi = req.body.kiwi;
             var flatCabbage = req.body.flatCabbage;
-            var redCabbage = req.body.redCabbage;
-            var zucchini = req.body.zucchini;
+            var orange = req.body.orange;
+            var banana = req.body.banana;
             var eggPlant = req.body.eggPlant;
-            var greenBeans = req.body.greenBeans;
+            var mango = req.body.mango;
             var whiteCarrot = req.body.whiteCarrot;
-            var mint = req.body.mint;
+            var pomegranate = req.body.pomegranate;
             var carrotsT = parseInt(carrots) * .40;
             carrotsT = carrotsT.toFixed(2);
             var lemonT = parseInt(lemon) * .50;
             lemonT = lemonT.toFixed(2);
-            var onionT = parseInt(onion) * .60;
-            onionT = onionT.toFixed(2);
+            var appleT = parseInt(apple) * .60;
+            appleT = appleT.toFixed(2);
             var whitePotatoT = parseInt(whitePotato) * .70;
             whitePotatoT = whitePotatoT.toFixed(2);
-            var redPotatoT = parseInt(redPotato) * .80;
-            redPotatoT = redPotatoT.toFixed(2);
+            var melonT = parseInt(melon) * .80;
+            melonT = melonT.toFixed(2);
             var redPepperT = parseInt(redPepper) * .60;
             redPepperT = redPepperT.toFixed(2);
             var yellowPepperT = parseInt(yellowPepper) * .70;
             yellowPepperT = yellowPepperT.toFixed(2);
-            var radishT = parseInt(radish) * .50;
-            radishT = radishT.toFixed(2);
+            var kiwiT = parseInt(kiwi) * .50;
+            kiwiT = kiwiT.toFixed(2);
             var flatCabbageT = parseInt(flatCabbage) * .50;
             flatCabbageT = flatCabbageT.toFixed(2);
-            var redCabbageT = parseInt(redCabbage) * .60;
-            redCabbageT = redCabbageT.toFixed(2);
-            var zucchiniT = parseInt(zucchini) * .70;
-            zucchiniT = zucchiniT.toFixed(2);
+            var orangeT = parseInt(orange) * .60;
+            orangeT = orangeT.toFixed(2);
+            var bananaT = parseInt(banana) * .70;
+            bananaT = bananaT.toFixed(2);
             var eggPlantT = parseInt(eggPlant) * .90;
             eggPlantT = eggPlantT.toFixed(2);
-            var greenBeansT = parseInt(greenBeans) * .40;
-            greenBeansT = greenBeansT.toFixed(2);
+            var mangoT = parseInt(mango) * .40;
+            mangoT = mangoT.toFixed(2);
             var whiteCarrotT = parseInt(whiteCarrot) * .50;
             whiteCarrotT = whiteCarrotT.toFixed(2);
-            var mintT = parseInt(mint) * .99;
-            mintT = mintT.toFixed(2);
+            var pomegranateT = parseInt(pomegranate) * .99;
+            pomegranateT = pomegranateT.toFixed(2);
             var myUsername = req.session.loggedInUser.name;
             var delivery = parseInt(req.body.delivery[1]);
             var shippingExpenses = 0;
@@ -372,7 +372,7 @@ myApp.post('/order',
                 }
             }
 
-            var subtotal = parseFloat(carrotsT) + parseFloat(lemonT) + parseFloat(onionT) +  parseFloat(whitePotatoT) +  parseFloat(redPotatoT) + +  parseFloat(redPepperT) +  parseFloat(yellowPepperT) +  parseFloat(radishT) + parseFloat(flatCabbageT) + parseFloat(redCabbageT) + parseFloat(zucchiniT) +parseFloat(eggPlantT) +parseFloat(greenBeansT) +parseFloat(whiteCarrotT) +parseFloat(mintT) +
+            var subtotal = parseFloat(carrotsT) + parseFloat(lemonT) + parseFloat(appleT) +  parseFloat(whitePotatoT) +  parseFloat(melonT) + +  parseFloat(redPepperT) +  parseFloat(yellowPepperT) +  parseFloat(kiwiT) + parseFloat(flatCabbageT) + parseFloat(orangeT) + parseFloat(bananaT) +parseFloat(eggPlantT) +parseFloat(mangoT) +parseFloat(whiteCarrotT) +parseFloat(pomegranateT) +
             parseFloat(shippingExpenses);
             var tax = subtotal * .13;
             tax = parseFloat(tax.toFixed(2));
@@ -382,19 +382,19 @@ myApp.post('/order',
                 name: myUsername,
                 carrots: carrotsT,
                 lemon: lemonT,
-                onion: onionT,
+                apple: appleT,
                 whitePotato: whitePotatoT,
-                redPotato: redPotatoT,
+                melon: melonT,
                 redPepper: redPepperT,
                 yellowPepper: yellowPepperT,
-                radish: radishT,
+                kiwi: kiwiT,
                 flatCabbage: flatCabbageT,
-                redCabbage: redCabbageT,
-                zucchini: zucchiniT,
+                orange: orangeT,
+                banana: bananaT,
                 eggPlant: eggPlantT,
-                greenBeans: greenBeansT,
+                mango: mangoT,
                 whiteCarrot: whiteCarrotT,
-                mint: mintT,
+                pomegranate: pomegranateT,
                 delivery: shippingExpenses,
                 subtotal: subtotal,
                 tax: tax,
@@ -414,8 +414,8 @@ myApp.post('/order',
                 from: 'supermarketgroup13@yahoo.com',
                 to: req.session.loggedInUser.email,
                 subject: 'Your invoice',
-                text: 'Hi ' + req.session.loggedInUser.name + '\n' + 'your invoice \n' + 'carrots :' + '' + carrotsT + '\n' + 'lemon :' + '' + lemonT + '\n' + 'onion :' + '' + onionT +'\n' + 'whitePotato :' + '' + whitePotatoT + '\n' + 'redPotato :' + '' + redPotatoT + '\n'  + 'redPepper :' + '' + redPepperT +'\n' + 'yellowPepper :' + '' + yellowPepperT +'\n'+ 'radish :' + '' + radishT +'\n' +'flatCabbage :' + '' + flatCabbageT +'\n' +'redCabbage :' + '' + redCabbageT +'\n'+'zucchini :' + '' + zucchiniT +'\n' +
-                'eggPlant :' + '' + eggPlantT +'\n' +'greenBeans :' + '' + greenBeansT +'\n' +'whiteCarrot :' + '' + whiteCarrotT +'\n' +'mint :' + '' + mintT +'\n' +
+                text: 'Hi ' + req.session.loggedInUser.name + '\n' + 'your invoice \n' + 'carrots :' + '' + carrotsT + '\n' + 'lemon :' + '' + lemonT + '\n' + 'apple :' + '' + appleT +'\n' + 'whitePotato :' + '' + whitePotatoT + '\n' + 'melon :' + '' + melonT + '\n'  + 'redPepper :' + '' + redPepperT +'\n' + 'yellowPepper :' + '' + yellowPepperT +'\n'+ 'kiwi :' + '' + kiwiT +'\n' +'flatCabbage :' + '' + flatCabbageT +'\n' +'orange :' + '' + orangeT +'\n'+'banana :' + '' + bananaT +'\n' +
+                'eggPlant :' + '' + eggPlantT +'\n' +'mango :' + '' + mangoT +'\n' +'whiteCarrot :' + '' + whiteCarrotT +'\n' +'pomegranate :' + '' + pomegranateT +'\n' +
 
                 'Shipping Charge :' + '' + shippingExpenses.toString() + '\n' + 'Sub Total Charge :' + '' + subtotal.toString() + '\n' + ' Tax :' + '' + tax.toString() + '\n' + 'Total :' + '' + total.toString()
             };
