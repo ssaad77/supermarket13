@@ -370,6 +370,7 @@ section{
 	font-weight: bold;
 	font-size: 22px;
 	margin-left:200px;
+	width: max-content;
   }
   
   .card button {
@@ -404,6 +405,7 @@ section{
 	margin-right: 200px;
 	font-weight: bold;
 	margin-left: 50px;
+	width: max-content;
   }
   .card1 button {
 	border: none;
@@ -436,6 +438,7 @@ section{
 	width:100px;
 	font-weight: bold;
 	margin-left: 40px;
+	width: max-content;
   }
   .card2 button {
 	border: none;
@@ -499,14 +502,15 @@ caption{
 
 
 label{
-    width: 170px;
+    width: 100px;
     display: inline-block;
     font-size: 18px;
     font-family: 'Kalam', cursive;
     padding: 3px;
     box-shadow: 0px 0px 3px 3px ;
 	border-radius: 8px;
-
+	margin-right: 50px;
+	margin-bottom: 20px;
 }
 input:not([type="radio"]), select{
 	font-size: 16px;
@@ -524,13 +528,14 @@ input:not([type="radio"]){
 	border-radius: 8px;
 	padding: 5px 10px;
 }
-select{
+select {
     width: 198px;
 	margin-top: 2px;
 	height: 43px;
 }
+
 form, .formData{
-	width: 400px;
+	
    
     padding: 30px;
     margin: 35px auto;
@@ -538,6 +543,7 @@ form, .formData{
     
 	
 }
+
 
 .clear{
     clear: both;
@@ -571,6 +577,7 @@ input[type="submit"]:active{
     box-shadow: -5px -5px 5px 5px #140255;
 }
 
+
 footer  {
 	color:white;
 	text-align: center;
@@ -588,6 +595,7 @@ footer  {
 input:not([type="radio"]){
 width: 70px;
 margin-top: 10px;
+
 }
 
 
@@ -596,4 +604,357 @@ margin-top: 10px;
 }
 .form-control-sm{
 	margin-left: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+figcaption:hover{
+	color:red;
+}
+figcaption:visited{
+	color:yellow;
+}
+figcaption :focus{
+	color:yellow;
+}
+
+
+
+
+	
+
+section{
+	width:400px;
+	float:right;
+}
+.reorder{
+	float:right;
+    width:30px;
+		
+	padding-top:60px;
+	padding-left:200px;
+	margin-left:500px;
+	margin-bottom:500px;
+	margin-top: 100px;
+}
+.reorder figcaption { 
+	margin-top: 1e;
+	margin-bottom:25px;
+	font-size: 80%;
+    padding-left:400px;
+	color:rgb(245, 14, 14) ;
+	font-style:italic;
+	font-weight:bold;
+	height:5px;
+	width:160px;
+    margin-left: 10px;
+}
+
+.reorder img{
+	border-radius: 200px 200px 200px 200px;
+	box-shadow: 0px 0px 3px 3px;
+	width:160px;
+	height:160px;
+	margin-top: 10px;
+	margin-bottom:10px;
+	margin-left:300px;
+	border:2px solid black;
+}
+
+
+.reorder h3{ 
+    color:#33CFFF;
+    padding-left:160px;
+	padding-right:30px;
+	padding-bottom:20px;
+    text-decoration:underline;
+	font-family: "Times New Roman", Times, serif;
+}
+.reorder p {
+	
+	padding-left:160px;
+	padding-right:30px;
+	
+	
+}
+.nextpage a {
+	font-size:20px;
+	font-style:italic;
+	font-weight:bold;
+	color:#C2FF33  ;
+	
+}
+
+.aside1order{
+	width:100px;
+	float:left;
+	margin-top:50px;
+	margin-left:20px;
+	margin-top: 190px;
+	margin-right: 400px;
+}
+.aside2order{
+	width:100px;
+	float:left;
+	margin-top:50px;
+	margin-left:100px;
+	
+}
+.aside3order{
+	width:10px;
+	float:right;
+	margin-top:50px;
+	margin-left:50px;
+	
+}
+.aside4order{
+	width:10px;
+	float:right;
+	margin-top:50px;
+	margin-left:10px;
+	margin-right:250px;
+	margin-top: 180px;
+	
+}
+.aside5order{
+	width:300px;
+	float: left;
+	margin-top:50px;
+	margin-left:300px;
+	margin-right:2px;
+	
+}
+.fgaside1order{
+	color:rgb(245, 14, 14) ;
+	margin-top: 3px;
+	margin-bottom:3px;
+	margin-left:47px;
+	font-size: 80%;
+    font-style:italic;
+	font-weight:bold;
+}
+.fgaside2order
+{
+	color:rgb(245, 14, 14) ;
+	margin-top: 3px;
+	margin-bottom:3px;
+	margin-left:47px;
+	font-size: 80%;
+    font-style:italic;
+	font-weight:bold;
+}
+.fgaside3order
+{
+	color:rgb(245, 14, 14) ;
+	margin-top: 3px;
+	margin-bottom:3px;
+	margin-left:100px;
+	font-size: 80%;
+    font-style:italic;
+	font-weight:bold;
+}
+.fgaside4order
+{
+	color:rgb(245, 14, 14) ;
+	margin-top: 3px;
+	margin-bottom:3px;
+	margin-left:100px;
+	font-size: 80%;
+    font-style:italic;
+	font-weight:bold;
+}
+
+.aside1order img{
+	width:160px;
+	border-radius: 200px 200px 200px 200px;
+	box-shadow: 0px 0px 3px 3px;
+	height:160px;
+	margin-top: 20px;
+	margin-bottom:10px;
+	margin-left:5px;
+	border:2px solid black;
+	background-color: chartreuse;
+}
+.aside2order img{
+	width:160px;
+	border-radius: 200px 200px 200px 200px;
+	box-shadow: 0px 0px 3px 3px;
+	height:160px;
+	margin-top: 20px;
+	margin-bottom:10px;
+	margin-left:10px;
+	border:2px solid black;
+	background-color: chartreuse;
+}
+.aside3order img{
+	width:160px;
+	border-radius: 200px 200px 200px 200px;
+	box-shadow: 0px 0px 3px 3px;
+	height:160px;
+	margin-top: 20px;
+	margin-bottom:10px;
+	
+	border:2px solid black;
+	background-color: chartreuse;
+}
+.aside4order img{
+	width:160px;
+	border-radius: 200px 200px 200px 200px;
+	box-shadow: 0px 0px 3px 3px;
+	height:160px;
+	margin-top: 20px;
+	margin-bottom:10px;
+	margin-left:10px;
+	border:2px solid black;
+	background-color: chartreuse;
+}
+
+.asideorder img{
+	width:160px;
+	border-radius: 200px 200px 200px 200px;
+	box-shadow: 0px 0px 3px 3px;
+	height:160px;
+	margin-top: 20px;
+	margin-bottom:10px;
+	margin-left:10px;
+	border:2px solid black;
+	background-color: chartreuse;
+}
+.aside1order p , .aside2 p {
+	text-align:justify;
+	font-weight: bold;
+	 font-family: Arial, Helvetica, sans-serif;
+	 color:rgb(0, 0, 0);
+	 
+}
+
+.aside5order h1{
+	font-size: 300%;
+}
+.aside5order p{
+	font-weight: bold;
+}
+.cardorder {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	
+	margin: auto;
+	text-align: center;
+	font-family: arial;
+  }
+  
+  .priceorder {
+	color: black;
+	font-weight: bold;
+	font-size: 22px;
+	margin-left: 100px;
+	width: max-content;
+  }
+  
+  .cardorder button {
+	border: none;
+	outline: 0;
+	padding: 12px;
+	color: white;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	width: 30%;
+	margin-left:200px;
+	font-size: 18px;
+	font-weight: bold;
+  }
+  
+  .cardorder button:hover {
+	opacity: 0.7;
+  }
+  
+.card2order {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	margin-top: 100px;
+	margin: auto;
+	text-align: center;
+	font-family: arial;
+  }
+  
+  .price1order {
+	color: black;
+	font-size: 22px;
+	margin-right: 200px;
+	font-weight: bold;
+	margin-left: 50px;
+	width: max-content;
+  }
+  .card1order button {
+	border: none;
+	outline: 0;
+	padding: 12px;
+	color: white;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	width: 100px;
+	margin-left: 40px;
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 100px;
+  }
+  
+  .card1order button:hover {
+	opacity: 0.7;
+  }
+  .card2order {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	
+	margin: auto;
+	text-align: center;
+	font-family: arial;
+  }
+  
+  .price2order {
+	color: black;
+	font-size: 22px;
+	width:100px;
+	font-weight: bold;
+	margin-left: 40px;
+	width: max-content;
+  }
+  .card2order button {
+	border: none;
+	outline: 0;
+	padding: 12px;
+	color: white;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	width: 100px;
+	margin-right: 200px;
+	margin-left: 40px;
+	font-weight: bold;
+	font-size: 18px;
+  }
+  
+  .card2order button:hover {
+	opacity: 0.7;
+  }
+  .HeaderOrder {
+	padding:20px;
+	color:red;
+	width: 30px;
 }
