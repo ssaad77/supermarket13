@@ -297,7 +297,30 @@ myApp.post('/contactUs', [
             res.render('contactUsThank', pageData);
         }
     });
-myApp.post('/order',
+
+myApp.post('/order',[
+    check('carrots').custom((value, { req }) => {
+        value = parseInt(value)
+        if ((value + parseInt(req.body.lemon) +
+        parseInt(req.body.apple)+
+        parseInt(req.body.whitePotato)+
+        parseInt(req.body.melon)+
+        parseInt(req.body.redPepper)+
+        parseInt(req.body.yellowPepper)+
+        parseInt(req.body.kiwi)+
+        parseInt(req.body.flatCabbage)+
+        parseInt(req.body.orange)+
+        parseInt(req.body.banana)+
+        parseInt(req.body.eggPlant)+
+        parseInt(req.body.mango)+
+        parseInt(req.body.whiteCarrot)+
+        + parseInt(req.body.pomegranate)) == 0) {
+            throw new Error('you have to buy one product at least');
+        }
+        return true;
+    }),
+],
+
     function (req, res) {
        
         const errors = validationResult(req);
