@@ -213,7 +213,7 @@ section{
 .aside1{
 	width:100px;
 	float:left;
-	margin-top:50px;
+	margin-top:100px;
 	margin-left:20px;
 	
 }
@@ -957,4 +957,63 @@ section{
 	padding:20px;
 	color:red;
 	width: 30px;
+}
+.re111{
+	float:right;
+    width:500px;
+		
+	padding-top:60px;
+	padding-left:200px;
+	margin-left:500px;
+	margin-bottom:100px;
+	margin-top: .1px;
+}
+.re111 figcaption { 
+	margin-top: 50px;
+	margin-bottom:75px;
+	font-size: 80%;
+    padding-left:400px;
+	color:rgb(245, 14, 14) ;
+	font-style:italic;
+	font-weight:bold;
+	height:100px;
+	width:160px;
+    margin-left: 10px;
+}
+
+.re111 img{
+	border-radius: 200px 200px 200px 200px;
+	box-shadow: 0px 0px 3px 3px;
+	width:160px;
+	height:160px;
+	margin-top:1px;
+	margin-bottom:10px;
+	margin-left:120px;
+	border:2px solid black;
+}
+
+
+.re111 h3{ 
+    color:#33CFFF;
+    padding-left:160px;
+	padding-right:30px;
+	padding-bottom:20px;
+    text-decoration:underline;
+	font-family: "Times New Roman", Times, serif;
+}
+.re111 p {
+	
+	padding-left:160px;
+	padding-right:30px;
+	
+	
+}
+.fgaside111{
+	color:rgb(245, 14, 14) ;
+	margin-top: 50px;
+	margin-bottom:50px;
+	margin-left:47px;
+	font-size: 80%;
+    font-style:italic;
+	font-weight:bold;
 }
