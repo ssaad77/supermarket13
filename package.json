@@ -18,7 +18,7 @@
     "express-session": "^1.17.1",
     "express-validator": "*",
     "mongoose": "*",
-    "nodemailer": "^6.4.10"
+    "nodemailer": "^6.4.16"
   },
   "devDependencies": {},
   "repository": {
